@@ -1,14 +1,15 @@
 ﻿@page
-@model RazorCrudApp.Pages.Books.CreateModel
+@model RazorCrudApp.Pages.Books.EditModel
 @{
     ViewData["Title"] = "Create";
 }
 
 <div class="mt-lg-5">
-    <h2>Create New Book</h2>
+    <h2>Edit @Model.Book.Name</h2>
 
     <div class="col-8">
         <form method="post">
+            <input type="hidden" asp-for="@Model.Book.Id" />
             <div class="form-group">
                 <label asp-for="@Model.Book.Name"></label>
                 <input class="form-control" asp-for="@Model.Book.Name">
@@ -22,7 +23,7 @@
                 <label asp-for="@Model.Book.PublishedDate"></label>
                 <input class="form-control" asp-for="@Model.Book.PublishedDate">
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">Update</button>
         </form>
     </div>
 </div>

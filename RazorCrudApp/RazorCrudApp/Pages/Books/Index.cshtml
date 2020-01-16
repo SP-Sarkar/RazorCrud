@@ -16,11 +16,12 @@
     {
         <table class="table">
             <thead class="thead-dark">
-            <tr>
-                <th scope="col">@Html.DisplayNameFor(m => m.Book.Name)</th>
-                <th scope="col">@Html.DisplayNameFor(m => m.Book.ISBN)</th>
-                <th scope="col">@Html.DisplayNameFor(m => m.Book.PublishedDate)</th>
-            </tr>
+                <tr>
+                    <th scope="col">@Html.DisplayNameFor(m => m.Book.Name)</th>
+                    <th scope="col">@Html.DisplayNameFor(m => m.Book.ISBN)</th>
+                    <th scope="col">@Html.DisplayNameFor(m => m.Book.PublishedDate)</th>
+                    <th scope="col"></th>
+                </tr>
             </thead>
             <tbody>
             @foreach (var item in Model.Books)
@@ -29,6 +30,7 @@
                     <th scope="row">@Html.DisplayFor(m => item.Name)</th>
                     <td>@Html.DisplayFor(m => item.ISBN)</td>
                     <td>@Html.DisplayFor(m => item.PublishedDate)</td>
+                    <td><a asp-page="Edit" asp-route-id="@item.Id" class="btn btn-primary btn-sm">Edit</a></td>
                 </tr>
             }
             </tbody>
