@@ -1,15 +1,14 @@
 ﻿@page
 @model RazorCrudApp.Pages.category.CreateModel
 @{
-    ViewData["Title"] = "Edit ";
+    ViewData["Title"] = "Create ";
 }
 
 <div class="mt-lg-5">
-    <h3>Edit @Model.Category.Name</h3>
+    <h3>Add New Category</h3>
 
     <div class="col-8">
         <form method="post">
-            <input type="hidden" asp-for="@Model.Category.Id" />
             <div class="form-group">
                 <label asp-for="@Model.Category.Name"></label>
                 <input class="form-control" asp-for="@Model.Category.Name">
