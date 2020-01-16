@@ -1,0 +1,29 @@
+﻿@page
+@model RazorCrudApp.Pages.Books.CreateModel
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create New Book</h2>
+
+<div class="col-8">
+    <form method="post">
+        <div class="form-group">
+            <label asp-for="@Model.Book.Name"></label>
+            <input class="form-control" asp-for="@Model.Book.Name">
+            @* <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> *@
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.Book.ISBN"></label>
+            <input class="form-control" asp-for="@Model.Book.ISBN">
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.Book.PublishedDate"></label>
+            <input class="form-control" asp-for="@Model.Book.PublishedDate">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+@section Scripts{
+    @{ await Html.RenderPartialAsync("Shared/_ValidationScriptsPartial");}
+}
