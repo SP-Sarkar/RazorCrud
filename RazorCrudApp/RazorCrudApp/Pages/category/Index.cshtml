@@ -14,26 +14,35 @@
     }
     else
     {
-        <h4>Category List. <span class="badge badge-primary">@numOfCategory</span> Categories</h4>
+        <div class="row">
+        <div class="col-6">
+            <h4>
+                Category List. <span class="badge badge-primary">@numOfCategory</span> Categories
+            </h4>
+        </div>
+            <div class="col-6">
+                <a asp-page="Create">Create Category</a>
+            </div>
+        </div>
         <form method="post">
             <table class="table">
                 <thead class="thead-dark">
-                <tr>
-                    <th scope="col">@Html.DisplayNameFor(m => m.Category.Name)</th>
-                    <th scope="col"></th>
-                </tr>
+                    <tr>
+                        <th scope="col">@Html.DisplayNameFor(m => m.Category.Name)</th>
+                        <th scope="col"></th>
+                    </tr>
                 </thead>
                 <tbody>
-                @foreach (var item in Model.Categories)
-                {
-                    <tr>
-                        <th scope="row"><a asp-page="Details" asp-route-id="@item.Id">@Html.DisplayFor(m => item.Name)</a></th>
-                        <td>
-                            <a asp-page="Edit" asp-route-id="@item.Id" class="btn btn-primary btn-sm">Edit</a>
-                            <button type="submit" asp-page-handler="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm">Delete</button>
-                        </td>
-                    </tr>
-                }
+                    @foreach (var item in Model.Categories)
+                    {
+                        <tr>
+                            <th scope="row"><a asp-page="Details" asp-route-id="@item.Id">@Html.DisplayFor(m => item.Name)</a></th>
+                            <td>
+                                <a asp-page="Edit" asp-route-id="@item.Id" class="btn btn-primary btn-sm">Edit</a>
+                                <button type="submit" asp-page-handler="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm">Delete</button>
+                            </td>
+                        </tr>
+                    }
                 </tbody>
             </table>
         </form>
