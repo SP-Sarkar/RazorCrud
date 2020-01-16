@@ -26,5 +26,22 @@ namespace RazorCrudApp.Pages.category
         {
             Categories = _context.Categories.ToList();
         }
+
+        public async Task<IActionResult> OnPostDelete(int id)
+        {
+            try
+            {
+                var categoryInDb = await _context.Categories.FindAsync(id);
+                if (categoryInDb == null) return BadRequest();
+                _context.Categories.Remove(categoryInDb);
+                var isDeleted = await _context.SaveChangesAsync();
+                if (isDeleted > 0) return RedirectToPage("Index");
+                return BadRequest();
+            }
+            catch (Exception e)
+            {
+                return BadRequest();
+            }
+        }
     }
 }
