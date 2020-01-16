@@ -6,9 +6,9 @@
 
 <h2>Book List</h2>
 
-@if (Model.Books== null)
+@if (Model.Books.Count() == 0)
 {
-    <p>There is no books yet.</p> <a href="#" >Create book</a>   
+    <p>There is no books yet.</p> <a asp-page="Create">Create book</a>   
 }
 else {
     <table class="table">
