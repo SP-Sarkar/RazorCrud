@@ -1,13 +1,11 @@
 ﻿@page
 @model RazorCrudApp.Pages.category.IndexModel
 @{
-    ViewData["Title"] = "Category";
+    ViewData["Title"] = "All Category";
     var numOfCategory = Model.Categories.Count();
 }
 
 <div class="mt-lg-5">
-
-
     @if (numOfCategory == 0)
     {
         <h3>Categories</h3>
