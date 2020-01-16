@@ -1,0 +1,28 @@
+﻿@page
+@model RazorCrudApp.Pages.Books.DetailsModel
+@{
+    ViewData["Title"] = "Book Information";
+}
+
+<form method="post">
+    <div class="mt-lg-5">
+        <h3>Details of @Model.Book.Name</h3>
+        <div class="row">
+            <div class="col-2">@Html.DisplayNameFor(m => m.Book.Name)</div>
+            <div class="col-10">@Html.DisplayFor(m => m.Book.Name)</div>
+        </div>
+        <div class="row">
+            <div class="col-2">@Html.DisplayNameFor(m => m.Book.ISBN)</div>
+            <div class="col-10">@Html.DisplayFor(m => m.Book.ISBN)</div>
+        </div>
+        <div class="row">
+            <div class="col-2">@Html.DisplayNameFor(m => m.Book.PublishedDate)</div>
+            <div class="col-10">@Html.DisplayFor(m => m.Book.PublishedDate)</div>
+        </div>
+        <div class="mt-lg-5">
+            <a asp-page="Index" class="btn btn-primary btn-sm">Back to book List</a>
+            <a asp-page="Edit" asp-route-id="@Model.Book.Id" class="btn btn-primary btn-sm">Edit @Model.Book.Name</a>
+            <button type="submit" class="btn btn-primary btn-sm" asp-page="Index" asp-page-handler="Delete" asp-route-id="@Model.Book.Id">Delete</button>
+        </div>
+    </div>
+</form>
