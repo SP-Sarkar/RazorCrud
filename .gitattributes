@@ -1,4 +1,6 @@
 *.cs linguist-detectable=true
 *.cshtml linguist-detectable=true
 *.razor linguist-detectable=true
+*.html linguist-detectable=false
 *.js linguist-detectable=false
+*.css linguist-detectable=false
