@@ -1,8 +1,33 @@
 ﻿@page
 @model RazorCrudApp.Pages.Books.IndexModel
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Book List";
 }
 
-<h2>Index</h2>
+<h2>Book List</h2>
 
+@if (Model.Books== null)
+{
+    <p>There is no books yet.</p> <a href="#" >Create book</a>   
+}
+else {
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">@Html.DisplayNameFor(m => m.Book.Name)</th>
+            <th scope="col">@Html.DisplayNameFor(m => m.Book.ISBN)</th>
+            <th scope="col">@Html.DisplayNameFor(m => m.Book.PublishedDate)</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Model.Books)
+        {
+            <tr>
+                <th scope="row">@Html.DisplayFor(m => item.Name)</th>
+                <th scope="row">@Html.DisplayFor(m => item.ISBN)</th>
+                <th scope="row">@Html.DisplayFor(m => item.PublishedDate)</th>
+            </tr>
+        }
+        </tbody>
+    </table>
+}
