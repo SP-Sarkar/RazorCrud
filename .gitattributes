@@ -1,5 +1,4 @@
-* linguist-vendored
-.cs linguist-vendored=true
-.cshtml linguist-vendored=true
-.razor linguist-vendored=true
-*.js linguist-vendored=false
+*.cs linguist-detectable=true
+*.cshtml linguist-detectable=true
+*.razor linguist-detectable=true
+*.js linguist-detectable=false
