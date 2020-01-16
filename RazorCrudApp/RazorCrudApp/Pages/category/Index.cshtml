@@ -1,0 +1,43 @@
+﻿@page
+@model RazorCrudApp.Pages.category.IndexModel
+@{
+    ViewData["Title"] = "Category";
+    var numOfCategory = Model.Categories.Count();
+}
+
+<div class="mt-lg-5">
+
+
+    @if (numOfCategory == 0)
+    {
+        <h3>Categories</h3>
+        <p>There is no Category yet.</p>
+        <a asp-page="Create">Create Category</a>
+    }
+    else
+    {
+        <h4>Category List. <span class="badge badge-primary">@numOfCategory</span> Categories</h4>
+        <form method="post">
+            <table class="table">
+                <thead class="thead-dark">
+                <tr>
+                    <th scope="col">@Html.DisplayNameFor(m => m.Category.Name)</th>
+                    <th scope="col"></th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach (var item in Model.Categories)
+                {
+                    <tr>
+                        <th scope="row"><a asp-page="Details" asp-route-id="@item.Id">@Html.DisplayFor(m => item.Name)</a></th>
+                        <td>
+                            <a asp-page="Edit" asp-route-id="@item.Id" class="btn btn-primary btn-sm">Edit</a>
+                            <button type="submit" asp-page-handler="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm">Delete</button>
+                        </td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </form>
+    }
+</div>
