@@ -15,5 +15,6 @@ namespace RazorCrudApp.AppDb
         }
 
         public DbSet<Book> Books { get; set; }
+        public DbSet<Category> Categories { get; set; }
     }
 }
