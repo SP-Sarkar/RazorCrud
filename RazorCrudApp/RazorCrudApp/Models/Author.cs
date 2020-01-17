@@ -19,8 +19,7 @@ namespace RazorCrudApp.Models
         public string Name { get; set; }
 
         [Required]
-        [RegularExpression(@"	^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$" ,
-            ErrorMessage = "Email is not Valid")]
+        [DataType(DataType.EmailAddress,ErrorMessage = "Email Id is not Valid")]
         [Display(Name = "Email Address")]
         public string Email { get; set; }
         
