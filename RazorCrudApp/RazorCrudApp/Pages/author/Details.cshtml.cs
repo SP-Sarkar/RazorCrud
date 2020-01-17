@@ -24,7 +24,8 @@ namespace RazorCrudApp.Pages.author
 
         public void OnGet(int id)
         {
-            Author = _context.Authors.Include(b => b.Books).FirstOrDefault(a => a.Id == id);
+            Author = _context.Authors.FirstOrDefault(a => a.Id == id);
+            if (Author != null) Author.Books = _context.Books.Where(b => b.AuthorId == Author.Id).ToList();
         }
     }
 }

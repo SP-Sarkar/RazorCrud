@@ -47,5 +47,20 @@
     </div>
 </div>
 <div class="mt-lg-5">
-    @Html.RenderPartialAsync("_AuthorBooks",Model.Author.Books);
+    @* @{await Html.RenderPartialAsync("_AuthorBooks", Model.Author.Books).ConfigureAwait(false);} *@
+    @* <partial name="_AuthorBooks" model="@Model.Author.Books"/> *@
+    <div class="row">
+        @foreach (var book in Model.Author.Books)
+        {
+            <div class="col-sm-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">@book.Name</h5>
+                        <p class="card-text">@book.PublishedDate</p>
+                        <a asp-page="/Books/Details" asp-route-id="@book.Id" class="btn btn-primary">Visit</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
 </div>
