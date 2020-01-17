@@ -30,12 +30,6 @@
                 <li class="nav-item active">
                     <a class="nav-link" asp-page="/Index">Home <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" asp-page="/About">Link</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" asp-page="/Contact">Link</a>
-                </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Books
@@ -52,6 +46,16 @@
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" asp-page="/category/Index">Category Lists</a>
                         <a class="dropdown-item" asp-page="/category/Create">Create Category</a>
+                    </div>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Authors
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" asp-page="/author/Index">Authors Lists</a>
+                        <a class="dropdown-item" asp-page="/author/Create">Create Author</a>
                     </div>
                 </li>
                 @* <li class="nav-item"> *@
