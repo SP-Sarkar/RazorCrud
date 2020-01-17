@@ -22,6 +22,10 @@
                 <label asp-for="@Model.Book.PublishedDate"></label>
                 <input class="form-control" asp-for="@Model.Book.PublishedDate">
             </div>
+            <div class="form-group">
+                <label asp-for="@Model.Book.Category.Name"></label>
+                <select class="form-control" asp-for="@Model.Categories"></select>
+            </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
