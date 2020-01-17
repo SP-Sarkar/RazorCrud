@@ -11,5 +11,8 @@ namespace RazorCrudApp.Models
         public string Name { get; set; }
         public string ISBN { get; set; }
         public DateTime PublishedDate { get; set; }
+
+        public int CategoryId { get; set; }
+        public virtual Category Category { get; set; }
     }
 }
