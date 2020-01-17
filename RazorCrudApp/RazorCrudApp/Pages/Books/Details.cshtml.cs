@@ -21,7 +21,7 @@ namespace RazorCrudApp.Pages.Books
         public Book Book { get; set; }
         public void OnGet(int id)
         {
-            Book = _context.Books.Include(c=>c.Category).FirstOrDefault(b=>b.Id == id);
+            Book = _context.Books.Include(c=>c.Category).Include(b=>b.Author).FirstOrDefault(b=>b.Id == id);
         }
     }
 }

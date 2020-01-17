@@ -22,6 +22,7 @@
                 <thead class="thead-dark">
                     <tr>
                         <th scope="col">@Html.DisplayNameFor(m => m.Book.Name)</th>
+                        <th scope="col">@Html.DisplayNameFor(m => m.Book.AuthorId)</th>
                         <th scope="col">@Html.DisplayNameFor(m => m.Book.CategoryId)</th>
                         <th scope="col">@Html.DisplayNameFor(m => m.Book.ISBN)</th>
                         <th scope="col"></th>
@@ -31,8 +32,15 @@
                     @foreach (var item in Model.Books)
                     {
                     <tr>
-                        <th scope="row"><a asp-page="Details" asp-route-id="@item.Id">@Html.DisplayFor(m => item.Name)</a></th>
-                        <td><a asp-page="/category/Details" asp-route-id="@item.CategoryId">@Html.DisplayFor(m => item.Category.Name)</a></td>
+                        <th scope="row">
+                            <a asp-page="Details" asp-route-id="@item.Id">@Html.DisplayFor(m => item.Name)</a>
+                        </th>
+                        <td>
+                            <a asp-page="/author/Details" asp-route-id="@item.AuthorId">@Html.DisplayFor(m => item.Author.Name)</a>
+                        </td>
+                        <td>
+                            <a asp-page="/category/Details" asp-route-id="@item.CategoryId">@Html.DisplayFor(m => item.Category.Name)</a>
+                        </td>
                         <td>@Html.DisplayFor(m => item.ISBN)</td>
                         <td>
                             <a asp-page="Edit" asp-route-id="@item.Id" class="btn btn-primary btn-sm">Edit</a>

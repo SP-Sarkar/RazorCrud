@@ -24,7 +24,8 @@ namespace RazorCrudApp.Pages.Books
         
         public void OnGet()
         {
-            Books = _context.Books.Include(c=>c.Category).ToList();
+            Books = _context.Books.Include(c=>c.Category)
+                .Include(b=>b.Author).ToList();
         }
 
         public async Task<IActionResult> OnPostDelete(int id)

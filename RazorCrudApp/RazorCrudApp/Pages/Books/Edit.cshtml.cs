@@ -23,11 +23,14 @@ namespace RazorCrudApp.Pages.Books
         [BindProperty]
         public Book Book { get; set; }
         public SelectList Categories { get; set; }
+        public SelectList Authors { get; set; }
 
         public void OnGet(int id)
         {
             Book = _context.Books.FirstOrDefault(b => b.Id == id);
             Categories = Book != null ? new SelectList(_context.Categories.ToList(), "Id", "Name", Book.CategoryId) : new SelectList(_context.Categories.ToList(), "Id", "Name");
+
+            Authors = Book != null ? new SelectList(_context.Authors.ToList(), "Id", "Name", Book.AuthorId) : new SelectList(_context.Authors.ToList(), "Id", "Name");
         }
 
         public async Task<IActionResult> OnPost()
@@ -43,6 +46,7 @@ namespace RazorCrudApp.Pages.Books
                     oldBookInfo.ISBN = Book.ISBN;
                     oldBookInfo.Name = Book.Name;
                     oldBookInfo.CategoryId = Book.CategoryId;
+                    oldBookInfo.AuthorId = Book.AuthorId;
                 }
                 await _context.SaveChangesAsync();
                 return RedirectToPage("Index");

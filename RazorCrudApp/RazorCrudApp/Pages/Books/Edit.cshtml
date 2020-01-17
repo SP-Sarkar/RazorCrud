@@ -22,9 +22,9 @@
                 <span asp-validation-for="Book.ISBN" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Book.PublishedDate"></label>
-                <input type="date" class="form-control" asp-for="Book.PublishedDate">
-                <span asp-validation-for="Book.PublishedDate" class="text-danger"></span>
+                <label asp-for="Book.AuthorId"></label>
+                <select class="form-control" asp-for="Book.AuthorId" asp-items="@Model.Authors"></select>
+                <span asp-validation-for="Book.AuthorId" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Book.CategoryId"></label>

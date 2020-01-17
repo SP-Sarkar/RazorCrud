@@ -22,10 +22,12 @@ namespace RazorCrudApp.Pages.Books
         [BindProperty]
         public Book Book { get; set; }
         public SelectList Categories { get; set; }
+        public SelectList Authors { get; set; }
 
         public void OnGet()
         {
             Categories = new SelectList(_context.Categories.ToList(),"Id","Name");
+            Authors = new SelectList(_context.Authors.ToList(),"Id","Name");
         }
 
         public async Task<IActionResult> OnPost()

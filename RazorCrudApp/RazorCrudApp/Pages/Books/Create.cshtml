@@ -26,9 +26,16 @@
                 <span asp-validation-for="Book.PublishedDate" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="Book.AuthorId"></label>
+                <select class="form-control" asp-for="Book.AuthorId" asp-items="@Model.Authors"></select>
+                <span asp-validation-for="Book.AuthorId" class="text-danger"></span>
+                <a asp-page="/author/create" class="text-sm-left">Does not Find Author? Create New</a>
+            </div>
+            <div class="form-group">
                 <label asp-for="Book.CategoryId"></label>
                 <select class="form-control" asp-for="Book.CategoryId" asp-items="@Model.Categories"></select>
                 <span asp-validation-for="Book.CategoryId" class="text-danger"></span>
+                <a asp-page="/author/create" class="text-sm-left">Does not Find Category? Create New</a>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
