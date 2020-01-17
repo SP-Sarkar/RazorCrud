@@ -1,9 +1,9 @@
 ﻿@page
-@model RazorCrudApp.Pages.author._AuthorBooksModel
+@model IEnumerable<RazorCrudApp.Models.Book>
 @{
 }
 <div class="row">
-    @foreach (var book in Model.Books)
+    @foreach (var book in Model)
     {
         <div class="col-sm-3">
             <div class="card">

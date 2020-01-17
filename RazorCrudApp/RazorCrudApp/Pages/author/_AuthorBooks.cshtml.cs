@@ -18,9 +18,6 @@ namespace RazorCrudApp.Pages.author
 //            _context = context;
 //        }
 
-        [BindProperty]
-        public IEnumerable<Book> Books { get; set; }
-        
         public void OnGet()
         {
 
