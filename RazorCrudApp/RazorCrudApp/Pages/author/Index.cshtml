@@ -33,7 +33,7 @@
                 @foreach (var item in Model.Authors)
                 {
                     <tr>
-                        <td><img src="/uploads/@item.Image" width="60" height="60" class="img-thumbnail"/></td>
+                        <td><img src="uploads/@item.Image" width="60" height="60" class="img-thumbnail"/></td>
                         <th scope="row"><a asp-page="Details" asp-route-id="@item.Id">@Html.DisplayFor(m => item.Name)</a></th>
                         <td>
                             <a href="@item.Website">@Html.DisplayFor(m => item.Website)</a>

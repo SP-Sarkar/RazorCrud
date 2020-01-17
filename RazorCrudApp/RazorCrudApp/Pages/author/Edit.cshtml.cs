@@ -39,11 +39,7 @@ namespace RazorCrudApp.Pages.author
             try
             {
                 var oldAuthor = await _context.Authors.FindAsync(Author.Id);
-                if (ImageUpload != null)
-                {
-                    string image = UploadFile();
-                    oldAuthor.Image = image;
-                }
+                if (ImageUpload != null) oldAuthor.Image = Author.Image;
                 oldAuthor.Bio = Author.Bio;
                 oldAuthor.Website = Author.Website;
                 oldAuthor.DOB = Author.DOB;
