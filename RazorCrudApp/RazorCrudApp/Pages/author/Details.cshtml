@@ -1,0 +1,51 @@
+﻿@page
+@model RazorCrudApp.Pages.author.DetailsModel
+@{
+    ViewData["Title"] = "Details";
+}
+
+
+<div class="mt-lg-5">
+    <h3>@Model.Author.Name</h3>
+    <div class="row">
+        <div class="col-4">
+            <img src="/uploads/@Model.Author.Image" class="img-fluid rounded" />
+        </div>
+        <div class="col-8">
+            <div class="row">
+                <div class="col-3">@Html.DisplayNameFor(m => m.Author.Name)</div>
+                <div class="col-9">@Html.DisplayFor(m => m.Author.Name)</div>
+            </div>
+            <div class="row">
+                <div class="col-3">@Html.DisplayNameFor(m => m.Author.Email)</div>
+                <div class="col-9">@Html.DisplayFor(m => m.Author.Email)</div>
+            </div>
+            <div class="row">
+                <div class="col-3">@Html.DisplayNameFor(m => m.Author.DOB)</div>
+                <div class="col-9">@Html.DisplayFor(m => m.Author.DOB)</div>
+            </div>
+            <div class="row">
+                <div class="col-3">@Html.DisplayNameFor(m => m.Author.MobileNo)</div>
+                <div class="col-9">@Html.DisplayFor(m => m.Author.MobileNo)</div>
+            </div>
+            <div class="row">
+                <div class="col-3">@Html.DisplayNameFor(m => m.Author.Website)</div>
+                <div class="col-9">@Html.DisplayFor(m => m.Author.Website)</div>
+            </div>
+            <div class="row">
+                <div class="col-3">@Html.DisplayNameFor(m => m.Author.Bio)</div>
+                <div class="col-9">@Html.DisplayFor(m => m.Author.Bio)</div>
+            </div>
+        </div>
+        <form method="post">
+            <div class="mt-lg-5">
+                <a asp-page="Index" class="btn btn-primary btn-sm">Back to Author List</a>
+                <a asp-page="Edit" asp-route-id="@Model.Author.Id" class="btn btn-primary btn-sm">Edit @Model.Author.Name</a>
+                <button type="submit" class="btn btn-primary btn-sm" asp-page="Index" asp-page-handler="Delete" asp-route-id="@Model.Author.Id">Delete</button>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="mt-lg-5">
+    @Html.RenderPartialAsync("_AuthorBooks",Model.Author.Books);
+</div>
