@@ -32,7 +32,7 @@
                     {
                     <tr>
                         <th scope="row"><a asp-page="Details" asp-route-id="@item.Id">@Html.DisplayFor(m => item.Name)</a></th>
-                        <td>@Html.DisplayFor(m => item.Category.Name)</td>
+                        <td><a asp-page="/category/Details" asp-route-id="@item.CategoryId">@Html.DisplayFor(m => item.Category.Name)</a></td>
                         <td>@Html.DisplayFor(m => item.ISBN)</td>
                         <td>
                             <a asp-page="Edit" asp-route-id="@item.Id" class="btn btn-primary btn-sm">Edit</a>
