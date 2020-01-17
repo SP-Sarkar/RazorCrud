@@ -27,6 +27,13 @@ namespace RazorCrudApp.Models
         [Required]
         [Display(Name="Category Name")]
         public int CategoryId { get; set; }
+
         public Category Category { get; set; }
+
+        [ForeignKey("Author")]
+        [Required]
+        [Display(Name = "Author Name")]
+        public int AuthorId { get; set; }
+        public Author Author { get; set; }
     }
 }
