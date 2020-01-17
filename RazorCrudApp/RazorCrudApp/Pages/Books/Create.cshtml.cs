@@ -18,10 +18,9 @@ namespace RazorCrudApp.Pages.Books
         {
             _context = context;
         }
-
+        
         [BindProperty]
         public Book Book { get; set; }
-        [BindProperty]
         public SelectList Categories { get; set; }
 
         public void OnGet()
@@ -34,13 +33,16 @@ namespace RazorCrudApp.Pages.Books
             try
             {
                 if (!ModelState.IsValid) return Page();
+                //Book.CategoryId = (int) Categories.Se;
                 _context.Books.Add(Book);
-                var isAdded = await _context.SaveChangesAsync().ConfigureAwait(true);
-                return isAdded > 0 ? RedirectToPage("Index") : RedirectToPage("./Error");
+                var isAdded = await _context.SaveChangesAsync();
+                if (isAdded > 0) return RedirectToPage("Index") ;
+                return BadRequest();
             }
             catch (Exception e)
             {
-                return RedirectToPage("./Error");
+                if (e.InnerException != null) Console.WriteLine(e.InnerException.Message);
+                return BadRequest();
             }
         }
         
