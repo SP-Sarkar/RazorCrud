@@ -36,7 +36,7 @@ namespace RazorCrudApp.Pages.Books
             {
                 if (!ModelState.IsValid) return Page();
                 var oldBookInfo = await _context.Books.FindAsync(Book.Id);
-                if (oldBookInfo == null) return BadRequest();
+                if (oldBookInfo == null) return NotFound();
                 else 
                 {
                     oldBookInfo.PublishedDate = Book.PublishedDate;
@@ -44,13 +44,13 @@ namespace RazorCrudApp.Pages.Books
                     oldBookInfo.Name = Book.Name;
                     oldBookInfo.CategoryId = Book.CategoryId;
                 }
-                var isUpdated = await _context.SaveChangesAsync();
-                if (isUpdated > 0) return RedirectToPage("Index");
-                return BadRequest();
+                await _context.SaveChangesAsync();
+                return RedirectToPage("Index");
             }
             catch (Exception e)
             {
-                return BadRequest();
+                Console.WriteLine(e.Message);
+                return NotFound();
 
             }
         }

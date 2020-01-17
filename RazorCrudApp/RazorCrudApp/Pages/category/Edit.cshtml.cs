@@ -29,7 +29,7 @@ namespace RazorCrudApp.Pages.category
         public async Task<IActionResult> OnPost()
         {
             var oldCategory = await _context.Categories.FindAsync(Category.Id);
-            if (oldCategory == null) return BadRequest();
+            if (oldCategory == null) return NotFound();
             oldCategory.Name = Category.Name;
             var isUpdated = await _context.SaveChangesAsync();
             if (isUpdated > 0) return RedirectToPage("Index");

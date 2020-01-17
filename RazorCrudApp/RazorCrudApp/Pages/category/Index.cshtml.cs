@@ -32,15 +32,15 @@ namespace RazorCrudApp.Pages.category
             try
             {
                 var categoryInDb = await _context.Categories.FindAsync(id);
-                if (categoryInDb == null) return BadRequest();
+                if (categoryInDb == null) return NotFound();
                 _context.Categories.Remove(categoryInDb);
-                var isDeleted = await _context.SaveChangesAsync();
-                if (isDeleted > 0) return RedirectToPage("Index");
-                return BadRequest();
+                await _context.SaveChangesAsync();
+                return RedirectToPage("Index");
             }
             catch (Exception e)
             {
-                return BadRequest();
+                Console.WriteLine(e.Message);
+                return NotFound();
             }
         }
     }

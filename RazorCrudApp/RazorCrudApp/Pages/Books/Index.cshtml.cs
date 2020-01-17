@@ -32,15 +32,15 @@ namespace RazorCrudApp.Pages.Books
             try
             {
                 var book = await _context.Books.FindAsync(id);
-                if (book == null) return BadRequest();
+                if (book == null) return NotFound();
                 _context.Books.Remove(book);
-                var isDeleted = await _context.SaveChangesAsync();
-                if (isDeleted > 0) return RedirectToPage("Index");
-                return BadRequest();
+                await _context.SaveChangesAsync();
+                return RedirectToPage("Index");
             }
             catch (Exception e)
             {
-                return BadRequest();
+                Console.WriteLine(e.Message);
+                return NotFound();
             }
         }
     }
