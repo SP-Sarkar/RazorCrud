@@ -1,0 +1,55 @@
+﻿@page
+@model RazorCrudApp.Pages.author.EditModel
+@{
+    ViewData["Title"] = "Update Author";
+}
+
+
+<div class="mt-lg-5">
+    <h2>Edit </h2>
+
+    <div class="col-6">
+        <form method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Author.Name"></label>
+                <input class="form-control" asp-for="Author.Name">
+                <span asp-validation-for="Author.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Author.Email"></label>
+                <input class="form-control" asp-for="Author.Email">
+                <span asp-validation-for="Author.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Author.DOB"></label>
+                <input type="date" class="form-control" asp-for="Author.DOB">
+                <span asp-validation-for="Author.DOB" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Author.MobileNo"></label>
+                <input class="form-control" asp-for="Author.MobileNo">
+                <span asp-validation-for="Author.MobileNo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Author.Website"></label>
+                <input class="form-control" asp-for="Author.Website">
+                <span asp-validation-for="Author.Website" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Author.Image"></label>
+                <input type="file" class="form-control-file" asp-for="ImageUpload">
+                <span asp-validation-for="Author.Image" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Author.Bio"></label>
+                <textarea class="form-control" asp-for="Author.Bio"></textarea>
+                <span asp-validation-for="Author.Bio" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn btn-primary">Update</button>
+        </form>
+    </div>
+</div>
+@section Scripts{
+    @{ await Html.RenderPartialAsync("Shared/_ValidationScriptsPartial");}
+}
