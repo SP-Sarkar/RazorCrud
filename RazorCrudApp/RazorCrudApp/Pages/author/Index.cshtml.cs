@@ -25,5 +25,22 @@ namespace RazorCrudApp.Pages.author
         {
             Authors = _context.Authors.ToList();
         }
+
+        public async Task<IActionResult> OnPostDelete(int id)
+        {
+            try
+            {
+                var oldAuthor = await _context.Authors.FindAsync(id);
+                if (oldAuthor == null) return NotFound();
+                _context.Authors.Remove(oldAuthor);
+                await _context.SaveChangesAsync();
+                return RedirectToPage("Index");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return BadRequest();
+            }
+        }
     }
 }
