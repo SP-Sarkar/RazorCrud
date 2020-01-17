@@ -22,23 +22,23 @@
                 <thead class="thead-dark">
                     <tr>
                         <th scope="col">@Html.DisplayNameFor(m => m.Book.Name)</th>
+                        <th scope="col">@Html.DisplayNameFor(m => m.Book.CategoryId)</th>
                         <th scope="col">@Html.DisplayNameFor(m => m.Book.ISBN)</th>
-                        <th scope="col">@Html.DisplayNameFor(m => m.Book.PublishedDate)</th>
                         <th scope="col"></th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach (var item in Model.Books)
                     {
-                        <tr>
-                            <th scope="row"><a asp-page="Details" asp-route-id="@item.Id">@Html.DisplayFor(m => item.Name)</a></th>
-                            <td>@Html.DisplayFor(m => item.ISBN)</td>
-                            <td>@Html.DisplayFor(m => item.PublishedDate)</td>
-                            <td>
-                                <a asp-page="Edit" asp-route-id="@item.Id" class="btn btn-primary btn-sm">Edit</a>
-                                <button type="submit" asp-page-handler="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm">Delete</button>
-                            </td>
-                        </tr>
+                    <tr>
+                        <th scope="row"><a asp-page="Details" asp-route-id="@item.Id">@Html.DisplayFor(m => item.Name)</a></th>
+                        <td>@Html.DisplayFor(m => item.Category.Name)</td>
+                        <td>@Html.DisplayFor(m => item.ISBN)</td>
+                        <td>
+                            <a asp-page="Edit" asp-route-id="@item.Id" class="btn btn-primary btn-sm">Edit</a>
+                            <button type="submit" asp-page-handler="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm">Delete</button>
+                        </td>
+                    </tr>
                     }
                 </tbody>
             </table>

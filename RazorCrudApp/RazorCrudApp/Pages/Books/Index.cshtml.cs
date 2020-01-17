@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 using RazorCrudApp.AppDb;
 using RazorCrudApp.Models;
 
@@ -23,7 +24,7 @@ namespace RazorCrudApp.Pages.Books
         
         public void OnGet()
         {
-            Books = _context.Books.ToList();
+            Books = _context.Books.Include(c=>c.Category).ToList();
         }
 
         public async Task<IActionResult> OnPostDelete(int id)
