@@ -1,0 +1,27 @@
+﻿@page
+@model RazorCrudApp.Pages.category.DetailsModel
+@{
+    ViewData["Title"] = "Category Information";
+}
+
+
+<form method="post">
+    <div class="mt-lg-5">
+        <h3>Details of @Model.Category.Name</h3>
+        <h6>Total <span class="badge badge-primary">@Model.Category.Books.Count() </span> Book in @Model.Category.Name Category </h6>
+   
+            <div class="list-group">
+                @foreach (var item in Model.Category.Books)
+                {
+                    <a asp-page="/Books/Details" asp-route-id="@item.Id" class="list-group-item list-group-item-action">@item.Name</a>
+                }
+            </div>
+
+
+        <div class="mt-lg-5">
+            <a asp-page="Index" class="btn btn-primary btn-sm">Back to Category List</a>
+            <a asp-page="Edit" asp-route-id="@Model.Category.Id" class="btn btn-primary btn-sm">Edit @Model.Category.Name</a>
+            <button type="submit" class="btn btn-primary btn-sm" asp-page="Index" asp-page-handler="Delete" asp-route-id="@Model.Category.Id">Delete</button>
+        </div>
+    </div>
+</form>
