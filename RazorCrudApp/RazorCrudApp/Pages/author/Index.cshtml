@@ -1,0 +1,53 @@
+﻿@page
+@model RazorCrudApp.Pages.author.IndexModel
+@{
+    ViewData["Title"] = "Authors List";
+    var authorCount = Model.Authors.Count();
+}
+
+<div class="mt-lg-5">
+
+
+    @if (authorCount == 0)
+    {
+        <h3>Author List</h3>
+        <p>There is no author yet.</p>
+        <a asp-page="Create">Create Author</a>
+    }
+    else
+    {
+        <h4>Author List. <span class="badge badge-primary">@authorCount</span> Authors</h4>
+        <form method="post">
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">
+                            @Html.DisplayNameFor(m => m.Author.Image)
+                        </th>
+                        <th scope="col">@Html.DisplayNameFor(m => m.Author.Name)</th>
+                        <th scope="col">@Html.DisplayNameFor(m => m.Author.Website)</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                @foreach (var item in Model.Authors)
+                {
+                    <tr>
+                        <td><img src="uploads/@item.Image" width="60" height="60" class="img-thumbnail"/></td>
+                        <th scope="row"><a asp-page="Details" asp-route-id="@item.Id">@Html.DisplayFor(m => item.Name)</a></th>
+                        <td>
+                            <a href="@item.Website">@Html.DisplayFor(m => item.Website)</a>
+                        </td>
+                        <td>
+                            <a asp-page="Edit" asp-route-id="@item.Id" class="btn btn-primary btn-sm">Edit</a>
+                            <button type="submit" asp-page-handler="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm">Delete</button>
+                        </td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </form>
+    }
+</div>
+
+
