@@ -9,22 +9,26 @@
 
     <div class="col-8">
         <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="@Model.Book.Name"></label>
-                <input class="form-control" asp-for="@Model.Book.Name">
-                @* <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> *@
+                <label asp-for="Book.Name"></label>
+                <input class="form-control" asp-for="Book.Name">
+                <span asp-validation-for="Book.Name" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="@Model.Book.ISBN"></label>
-                <input class="form-control" asp-for="@Model.Book.ISBN">
+                <label asp-for="Book.ISBN"></label>
+                <input class="form-control" asp-for="Book.ISBN">
+                <span asp-validation-for="Book.ISBN" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="@Model.Book.PublishedDate"></label>
-                <input type="date" class="form-control" asp-for="@Model.Book.PublishedDate">
+                <label asp-for="Book.PublishedDate"></label>
+                <input type="date" class="form-control" asp-for="Book.PublishedDate">
+                <span asp-validation-for="Book.PublishedDate" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="@Model.Book.CategoryId"></label>
-                <select class="form-control" asp-for="@Model.Book.CategoryId" asp-items="@Model.Categories"></select>
+                <label asp-for="Book.CategoryId"></label>
+                <select class="form-control" asp-for="Book.CategoryId" asp-items="@Model.Categories"></select>
+                <span asp-validation-for="Book.CategoryId" class="text-danger"></span>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
