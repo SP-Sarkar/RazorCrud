@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 using RazorCrudApp.AppDb;
 using RazorCrudApp.Models;
 
@@ -20,7 +21,7 @@ namespace RazorCrudApp.Pages.Books
         public Book Book { get; set; }
         public void OnGet(int id)
         {
-            Book = _context.Books.Find(id);
+            Book = _context.Books.Include(c=>c.Category).FirstOrDefault(b=>b.Id == id);
         }
     }
 }
